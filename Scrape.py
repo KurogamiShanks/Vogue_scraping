@@ -11,6 +11,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+import re
+import unicodedata
 
 driver= webdriver.Chrome()
 # driver.set_page_load_timeout(10)
@@ -32,14 +34,21 @@ except :
     content = element_list.text
     driver.quit()
     print("program completed")
-    
-    item_list = content.split("\n")
-    item_list_new=[]
+   
+item_list = content.split("\n")
+pattern = re.compile('[^1-9]')
+newlist = list(filter(pattern.match, item_list))
+
+item_list_new=[]
 for i in item_list:
     a = i.replace(" ","-")
     item_list_new.append(a)
+	
+dict_item_list_new = {"shows":item_list_new}
+df_item_list_new = pd.DataFrame(dict_item_list_new)
+df_item_list_new.to_excel("E:/vogue_shows.xlsx")
     
-    def scraping(url):
+def scraping(url):
     html = urlopen(url)
     bsObj = BeautifulSoup(html.read(),"lxml")
     links = []
@@ -48,7 +57,7 @@ for i in item_list:
         links.append(i.text)    
     return links
 
-show_from_excel = pd.read_excel("E:/arpit_mundra_shows.xlsx",sheet_name = "Sheet1")
+show_from_excel = pd.read_excel("E:/vogue_shows_shows.xlsx",sheet_name = "Sheet1")
 
 dict_for_shows = {}
 count = 0
@@ -61,4 +70,4 @@ for i in show_from_excel["shows"]:
     print(count) 
    
 df_dict_for_Shows = pd.DataFrame(dict([ (k,pd.Series(v)) for k,v in dict_for_shows.items() ]))
-df_dict_for_Shows.to_excel("E:/final_file_arpit.xlsx")
+df_dict_for_Shows.to_excel("E:/final_vogue.xlsx")
