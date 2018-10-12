@@ -45,9 +45,7 @@ for i in item_list:
     links = []
     list_of_shows = bsObj.find("div",class_="season-module--tab-container season-module--tab-container__latest").findAll('a')
     for i in list_of_shows:
-        links.append(i.text)
-    
-    
+        links.append(i.text)    
     return links
 
 show_from_excel = pd.read_excel("E:/arpit_mundra_shows.xlsx",sheet_name = "Sheet1")
