@@ -4,14 +4,13 @@ from bs4 import BeautifulSoup
 import selenium
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait as wait
+#from selenium.webdriver.support.ui import WebDriverWait as wait
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import time
 import re
-import unicodedata
+#import unicodedata
 
 driver= webdriver.Chrome()
 # driver.set_page_load_timeout(10)
