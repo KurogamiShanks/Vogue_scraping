@@ -36,7 +36,7 @@ except :
     print("program completed")
    
 item_list = content.split("\n")
-pattern = re.compile('[^1-9]')
+pattern = re.compile('[^\d].*(2017|2018|2019).*')  #Prints links that only contain the year '2017,'2018', & '2019'
 newlist = list(filter(pattern.match, item_list))
 
 item_list_new=[]
