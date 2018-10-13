@@ -62,11 +62,13 @@ dict_for_shows = {}
 count = 0
 for i in show_from_excel["shows"]:
     url_changed =  "https://www.vogue.com/fashion-shows/" + i.lower()
-    
-    a = scraping(url_changed)
-    dict_for_shows[i.lower()] = a
-    count +=1
-    print(count) 
-   
+    try:
+        a = scraping(url_changed)
+        dict_for_shows[i.lower()] = a
+        count +=1
+        print(count)
+    except:
+        pass	
+	
 df_dict_for_Shows = pd.DataFrame(dict([ (k,pd.Series(v)) for k,v in dict_for_shows.items() ]))
 df_dict_for_Shows.to_excel("E:/final_vogue.xlsx")
