@@ -18,21 +18,14 @@ driver= webdriver.Chrome()
 driver.get("https://www.vogue.com/fashion-shows/spring-2019-menswear")
 time.sleep(2)
     
-try:
-    searchclick=driver.find_element_by_class_name("show-finder--button show-finder--button__season")
-    searchclick.click()
-    time.sleep(2)
-    print("try part executed")
-    driver.quit()
-except :
-    searchclick=driver.find_element_by_xpath("//*[@id='main']/div[2]/div/div/div/button[2]/span[1]")
-    searchclick.click()
-    time.sleep(2)
-    print("exception part executed")
-    element_list = driver.find_element_by_xpath("//ul[@class='show-finder--list']")
-    content = element_list.text
-    driver.quit()
-    print("program completed")
+searchclick=driver.find_element_by_xpath("//*[@id='main']/div[2]/div/div/div/button[2]/span[1]")
+searchclick.click()
+time.sleep(2)
+print("exception part executed")
+element_list = driver.find_element_by_xpath("//ul[@class='show-finder--list']")
+content = element_list.text
+driver.quit()
+print("program completed")
    
 item_list = content.split("\n")
 pattern = re.compile('[^\d].*(2017|2018|2019).*')  #Prints links that only contain the year '2017,'2018', & '2019'
