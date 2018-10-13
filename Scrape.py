@@ -40,7 +40,7 @@ pattern = re.compile('[^\d].*(2017|2018|2019).*')  #Prints links that only conta
 newlist = list(filter(pattern.match, item_list))
 
 item_list_new=[]
-for i in item_list:
+for i in newlist:
     a = i.replace(" ","-")
     item_list_new.append(a)
 	
