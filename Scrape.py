@@ -2,8 +2,6 @@ import pandas as pd
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import selenium
-import time
-import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait as wait
@@ -11,6 +9,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+import time
 import re
 import unicodedata
 
