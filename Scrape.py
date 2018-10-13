@@ -17,7 +17,7 @@ driver= webdriver.Chrome()
 driver.get("https://www.vogue.com/fashion-shows/spring-2019-menswear")
 time.sleep(2)
     
-searchclick=driver.find_element_by_xpath("//*[@id='main']/div[2]/div/div/div/button[2]/span[1]")
+searchclick=driver.find_element_by_xpath("//span[contains(text(),'Season')]")
 searchclick.click()
 time.sleep(2)
 print("exception part executed")
