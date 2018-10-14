@@ -20,7 +20,6 @@ time.sleep(2)
 searchclick=driver.find_element_by_xpath("//span[contains(text(),'Season')]")
 searchclick.click()
 time.sleep(2)
-print("exception part executed")
 element_list = driver.find_element_by_xpath("//ul[@class='show-finder--list']")
 content = element_list.text
 driver.quit()
