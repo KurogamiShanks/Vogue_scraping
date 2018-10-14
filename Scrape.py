@@ -47,7 +47,7 @@ def scraping(url):
         links.append(i.text)    
     return links
 
-show_from_excel = pd.read_excel("E:/vogue_shows_shows.xlsx",sheet_name = "Sheet1")
+show_from_excel = pd.read_excel("E:/vogue_shows.xlsx",sheet_name = "Sheet1")
 
 dict_for_shows = {}
 count = 0
